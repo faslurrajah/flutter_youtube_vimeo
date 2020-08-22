@@ -5,6 +5,7 @@ simple YouTube, Vimeo video player
 ## Getting Started
 
 For help getting started with Flutter, view our online documentation.
+
 ## iOS
 In order for plugin to work correctly, you need to add new key to ios/Runner/Info.plist
 ```

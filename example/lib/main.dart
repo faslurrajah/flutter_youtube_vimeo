@@ -1,37 +1,45 @@
+import 'package:example/vimeo.dart';
+import 'package:example/youtube.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_vimeo/flutter_youtube_vimeo.dart';
 
-void main() => runApp(Home());
+void main() => runApp(MaterialApp(home: Scaffold(body: Home())));
 
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-class Home extends StatelessWidget {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: YouVimPlayer('youtube','9w6ZysXw1b0')
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => YouTube()));
+                },
+                child: Text('Youtube'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Vimeo()));
+                },
+                child: Text('Vimeo'),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
-//Column(
-//children: [
-//RaisedButton(
-//onPressed: (){
-//Navigator.push(context, MaterialPageRoute(builder: (context) => YouVimPlayer('youtube','9w6ZysXw1b0')));
-//
-//},
-//child: Text('Youtube'),
-//),
-//SizedBox(height: 10,),
-//RaisedButton(
-//onPressed: (){
-//Navigator.push(context, MaterialPageRoute(builder: (context) => YouVimPlayer('vimeo','447872160')));
-//
-//},
-//child: Text('Vimeo'),
-//)
-//],
-//),
